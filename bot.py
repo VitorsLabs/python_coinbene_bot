@@ -25,8 +25,11 @@ import requests
 
 
 # API information
-apiId = ''
-secretId = ''
+apiId = 'e4ded97f572ac6307616c1067657a531'
+secretId = '08060e6f23a14d5aa5366c73412485e0'
+
+header_dict = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko",\
+    "Content-Type":"application/json;charset=utf-8","Connection":"keep-alive"}
 
 
 
@@ -143,7 +146,7 @@ def get_balance():
      print(data)
 
      # Send POST request and saving response as response object
-     r = requests.post(url = API_ENDPOINT, data = data)
+     r = requests.post(url = API_ENDPOINT, data = data, headers=header_dict)
      output = r.json()
 
      return output
@@ -201,7 +204,7 @@ def limit_order(t, q, p, s):
      }
 
      # Send POST request and saving response as response object
-     r = requests.post(url = API_ENDPOINT, data = data)
+     r = requests.post(url = API_ENDPOINT, data = data, headers=header_dict)
      output = r.json()
 
      # return orderID for order tracking
